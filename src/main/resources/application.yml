@@ -1,0 +1,27 @@
+eureka:
+  client:
+    instance:
+      preferIpAddress:true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+spring:
+    application:
+        name: hystrix
+    zipkin:
+      enabled: true
+      base-url: http://localhost:9411/
+    sleuth:
+      sampler:
+        probability: 1.0
+server:
+    port: 8082
+
+debug: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream,info,health
+      base-path: /
+
